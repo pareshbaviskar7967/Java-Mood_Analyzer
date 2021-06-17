@@ -10,8 +10,10 @@ class MoodAnalyserTests {
 
 	@Test
 	public void testMoodAnalyzer_Constructor_SadMessage_shouldReturn_SAD() {
-		String mood = MoodAnalyzer.MoodAnalyzer();
+		String mood = MoodAnalyzer.MoodAnalyzer("I am in Happy mood");
 		System.out.println(mood);
-		assertEquals("SAD", mood);
+		mood = MoodAnalyzer.MoodAnalyzer();
+		System.out.println(mood);
+		assertEquals("HAPPY", mood);
 	}
 }
