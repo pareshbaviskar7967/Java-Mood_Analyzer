@@ -11,9 +11,8 @@ class MoodAnalyserTests {
 	MoodAnalyzer moodanalyzer = new MoodAnalyzer();
 
 	@Test
-	public void testMoodAnalyzer() throws Exception {
-		System.out.println("Welcome to the mood analyzer");
-		String mood = moodanalyzer.analyseMood("I am in Sad Mood");
-		assertEquals("SAD", mood);
+	public void testMoodAnalyzer_anyMOod_shouldReturn_Happy() {
+		String mood = moodanalyzer.analyseMood("I am in Any Mood");
+		assertEquals("HAPPY", mood);
 	}
 }
