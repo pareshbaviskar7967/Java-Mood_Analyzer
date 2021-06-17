@@ -2,37 +2,29 @@ package main;
 
 import java.util.*;
 import test.CustomException;
-import main.MoodAnalyserException.Code;
 
 public class MoodAnalyzer {
-	public String message;
-
-	public MoodAnalyzer() {
-
-	}
-
-	public MoodAnalyzer(String message) throws MoodAnalyserException {
-		super();
-		this.message = message;
-
-	}
-
-	public String analyseMood() throws Exception {
+	public static String MoodAnalyzer() throws CustomException {
+		Scanner sc = new Scanner(System.in);
+		String message = sc.nextLine();
 		try {
-			if (message == null)
-				throw new MoodAnalyserException(Code.NULL, "Null Mood");
-			else if (message.trim().isEmpty())
-				throw new MoodAnalyserException(Code.EMPTY, "Empty Mood");
-			else if (message.toLowerCase().contains("sad")) {
-				System.out.println("SAD");
+			if (message.contains("Sad"))
 				return "SAD";
-			} else if (message.toLowerCase().contains("happy")) {
-				System.out.println("HAPPY");
+			else
 				return "HAPPY";
-			}
 		} catch (NullPointerException e) {
-			throw new MoodAnalyserException(Code.INVALID, "Empty Mood.....Enter valid Mood");
+			throw new CustomException("Invalid Mood.....Enter valid Mood");
 		}
-		return null;
+	}
+
+	public static String MoodAnalyzer(String message) throws CustomException {
+		try {
+			if (message.contains("Sad"))
+				return "SAD";
+			else
+				return "HAPPY";
+		} catch (NullPointerException e) {
+			throw new CustomException("Invalid Mood.....Enter valid mood");
+		}
 	}
 }

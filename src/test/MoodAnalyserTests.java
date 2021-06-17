@@ -1,62 +1,34 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
-
-import main.MoodAnalyserException;
 import main.MoodAnalyzer;
 
-class MoodAnalyserTests {
-
+public class MoodAnalyserTests {
 	@Test
-	public void testMoodAnalyzer_Constructor_SadMessage_shouldReturn_SAD() throws Exception {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in Sad Mood");
-		String mood;
+	public void testMoodAnalyzer_Constructor_SadMessage_shouldReturn_SAD() {
 		try {
-			mood = moodAnalyzer.analyseMood();
+			String mood = MoodAnalyzer.MoodAnalyzer(null);
+			System.out.println(mood);
+			mood = MoodAnalyzer.MoodAnalyzer();
+			System.out.println(mood);
 			assertEquals("SAD", mood);
-		} catch (Exception e) {
+		} catch (CustomException e) {
 			System.out.println(e);
 		}
 	}
 
 	@Test
-	public void testMoodAnalyzer_Constructor_SadMessage_shouldReturn_HAPPY() throws MoodAnalyserException {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in Happy Mood ");
-		String mood;
+	public void testMoodAnalyzer_Constructor_SadMessage_shouldReturn_HAPPY() {
 		try {
-			mood = moodAnalyzer.analyseMood();
+			String mood = MoodAnalyzer.MoodAnalyzer(null);
+			System.out.println(mood);
+			mood = MoodAnalyzer.MoodAnalyzer();
+			System.out.println(mood);
 			assertEquals("HAPPY", mood);
-		} catch (Exception e) {
+		} catch (CustomException e) {
 			System.out.println(e);
 		}
-
-	}
-
-	@Test
-	public void testMoodAnalyzer_Constructor_SadMessage_shouldReturn_Empty() throws MoodAnalyserException {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer(" ");
-		String mood;
-		try {
-			mood = moodAnalyzer.analyseMood();
-			assertEquals("Empty", mood);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
-	}
-
-	@Test
-	public void testMoodAnalyzer_Constructor_SadMessage_shouldReturn_Null() throws MoodAnalyserException {
-		MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
-		String mood;
-		try {
-			mood = moodAnalyzer.analyseMood();
-			assertEquals("null", mood);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
 	}
 }
